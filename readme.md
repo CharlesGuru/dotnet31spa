@@ -9,9 +9,13 @@ Run
 - Make sure the C# extension is installed
 - open the console (integrated terminal) in the "ClientApp" folder
 - run "npm install"
+----enable power shell scripting for process if it is blocked :  Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
 - run "ng build"
+----update .net core SDK to 3.1  :  https://www.microsoft.com/net/core#windowscmd
 - launch the application from the debug section ".NET Core Launch (web)" or press "F5"
 - click on the "Fetch Data" menu item to verify that the angular app is recieving data from the api portion
+
+----get sql lite  https://www.sqlite.org/index.html,  
 
 -------------------------------------------------------------------------------------------------------------------
 

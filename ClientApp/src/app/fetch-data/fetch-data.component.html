@@ -1,12 +1,13 @@
 <h1 id="tableLabel">Weather forecast</h1>
 
-<p>This component demonstrates fetching data from the server.</p>
+<p>This component demonstrates fetching data from a Sqlite Database.</p>
 
 <p *ngIf="!forecasts"><em>Loading...</em></p>
 
 <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="forecasts">
   <thead>
     <tr>
+      <th>ID</th>
       <th>Date</th>
       <th>Temp. (C)</th>
       <th>Temp. (F)</th>
@@ -15,6 +16,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let forecast of forecasts">
+      <td>{{ forecast.weatherID}}</td>
       <td>{{ forecast.date | date}}</td>
       <td>{{ forecast.temperatureC }}</td>
       <td>{{ forecast.temperatureF }}</td>
