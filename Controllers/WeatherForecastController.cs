@@ -58,13 +58,13 @@ namespace dotnet31spa.Controllers
         }
 
 
-       /* [HttpDelete("{WeatherID}")]
-        public async Task Delete(string WeatherID)
+       [HttpDelete("{wthrid}")]
+        public async Task Delete(string wthrid)
         {
             //delete a record by table key value, rowid in sqlite
-            await weatherdelete.Delete(WeatherID);
+            await weatherdelete.Delete(wthrid);
           
-        }*/
+        }
 
         [HttpDelete]
         public async Task Delete([FromBody] WeatherForecast weatherForecast)

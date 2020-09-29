@@ -6,5 +6,6 @@ namespace dotnet31spa
     public interface IWeatherDelete
     {
         Task Delete(dotnet31spa.WeatherForecast weatherforcast);
+        Task Delete(string weatherdid);
     }
 }

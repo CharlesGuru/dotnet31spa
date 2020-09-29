@@ -27,11 +27,24 @@ namespace dotnet31spa
                 } catch (Exception exception) {
                     Console.WriteLine(exception);
                 throw;
-                }
-
             }
 
+        }
 
+        public async Task Delete(string WthrID)
+        {
+            using var conn = new SqliteConnection(databaseConfig.ConnName);
+
+            try {
+
+                await conn.ExecuteAsync("DELETE FROM Weather where  WeatherID = @WeatherID;" , new { WeatherID = WthrID});
+                
+                } catch (Exception exception) {
+                    Console.WriteLine(exception);
+                throw;
+            }
+
+        }
 
     }
 }
