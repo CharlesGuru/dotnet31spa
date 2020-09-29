@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { SharedWeatherService} from 'src/app/shared-weather.service';
 
+
 @Component({
   selector: 'app-add-edit-weather',
   templateUrl: './add-edit-weather.component.html',
