@@ -57,7 +57,9 @@ export class ShowWeatherComponent implements OnInit {
         summary:""
       };
 
-      if ( !this.modalService.hasOpenModals ) {
+      //this.modalService.dismissAll();
+
+      if ( !this.modalService.hasOpenModals() ) {
       const ref =  this.modalService.open(AddEditWeatherComponent);
       ref.componentInstance.userModel = this.forcast;
 

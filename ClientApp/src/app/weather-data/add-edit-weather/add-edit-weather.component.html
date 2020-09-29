@@ -1,5 +1,5 @@
 <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">test</h4>
+    <h4 class="modal-title" id="modal-basic-title">Weather</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -8,13 +8,17 @@
 <div class="modal-body">
 <form>
     <div class="form-group">
-    <label for="dateOfBirth">Date of birth</label>
+    <label for="dateWeather">Date</label>
     <div class="input-group">
-        <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
+        <input id="dateWeather" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
         <div class="input-group-append">
         <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
         </div>
     </div>
+    <label for="temperatureWeather">Temperature (c)</label>
+    <input id="temperatureWeather" type="text" class="form-control" placeholder="Enter the temperature in Celcius" >
+    <label for="summaryWeather">Summary</label>
+    <input id="summaryWeather" type="text" class="form-control" placeholder="Enter the weather Description" >
     </div>
 </form>
 </div>
