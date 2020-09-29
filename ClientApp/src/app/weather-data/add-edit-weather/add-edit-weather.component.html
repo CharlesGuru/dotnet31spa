@@ -18,13 +18,15 @@
     <label for="temperatureWeather">Temperature (c)</label>
     <input id="temperatureWeather" type="text" class="form-control" placeholder="Enter the temperature in Celcius" >
     <label for="summaryWeather">Summary</label>
-    <input id="summaryWeather" type="text" class="form-control" placeholder="Enter the weather Description" >
+    <input id="summaryWeather" type="text" class="form-control"  placeholder="Enter the weather Description" >
     </div>
 </form>
 </div>
 
 <div class="modal-footer">
-<button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+<button (click)="addWeather(); modal.close('Save click')"  *ngIf ="forcast.weatherid==0" class="btn btn-primary">Add</button>
+<button (click)="updateWeather();modal.close('Save click')"  *ngIf ="forcast.weatherid!=0" class="btn btn-primary">Update</button>
+<!-- <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button> -->
 </div>
 
 <!-- <div class="form-group row">

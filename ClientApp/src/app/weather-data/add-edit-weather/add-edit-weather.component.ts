@@ -11,19 +11,24 @@ export class AddEditWeatherComponent implements OnInit {
 
   constructor(private service:SharedWeatherService, public modal: NgbActiveModal) { }
 
-  @Input() forcast:WeatherForecast;
+  //@Input() forcast:WeatherForecast;
+  forcast:WeatherForecast;
   Weatherid:number;
   Weatherdate: string;
   WeatherTempC: number;
   WeatherSummary: string;
-  userModel: WeatherForecast;
+  //userModel: WeatherForecast;
 
   addWeather()
   {
      // weatherid=0
+      // this.service.addWeather(this.forcast).subscribe(res=>{
+      //   alert(res.toString());
+      // });
       this.service.addWeather(this.forcast).subscribe(res=>{
         alert(res.toString());
       });
+
   }
 
   updateWeather()
@@ -38,7 +43,7 @@ export class AddEditWeatherComponent implements OnInit {
 
   ngOnInit(): void 
   {
-    console.log(this.userModel);
+    //console.log(this.userModel);
     console.log(this.forcast);
     this.Weatherid=this.forcast.weatherid;
     this.Weatherdate=this.forcast.date;

@@ -61,20 +61,22 @@ export class ShowWeatherComponent implements OnInit {
 
       if ( !this.modalService.hasOpenModals() ) {
       const ref =  this.modalService.open(AddEditWeatherComponent);
-      ref.componentInstance.userModel = this.forcast;
+      ref.componentInstance.forcast = this.forcast;
 
       ref.result.then((result) => {
         this.closeResult = `Closed with: ${result}`;
         console.log(this.closeResult);
+
       }, (reason) => {
         this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
         console.log(this.closeResult);
       });
-    }
-    else
-    {
-      alert('close current modal');
-    }
+
+      }
+      else
+      {
+        alert('Close current modal window');
+      }
 
       // this.modalService.open(AddEditWeatherComponent, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       //   this.closeResult = `Closed with: ${result}`;
