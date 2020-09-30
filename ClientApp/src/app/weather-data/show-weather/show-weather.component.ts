@@ -52,7 +52,7 @@ export class ShowWeatherComponent implements OnInit {
 
       this.forcast={
         weatherid:0,
-        date: "",
+        date: null,
         temperatureC:0,
         temperatureF:0,
         summary:""
@@ -66,8 +66,13 @@ export class ShowWeatherComponent implements OnInit {
 
       ref.result.then((result) => {
         this.closeResult = `Closed with: ${result}`;
-        console.log('test' + this.closeResult);
+        console.log(this.closeResult);
         console.log(this.forcast);
+        
+        this.service.addWeather(this.forcast).subscribe(data=>{
+          alert(data.toString());
+          this.getWeatherList();
+        });
       }, (result) => {
         this.closeResult = `Dismissed ${this.getDismissReason(result)}`;
         console.log(this.closeResult);
@@ -93,13 +98,37 @@ export class ShowWeatherComponent implements OnInit {
       this.ActivateAddEditComponent = true;
       this.forcast=data;
 
+      if ( !this.modalService.hasOpenModals() ) {
+        const ref =  this.modalService.open(AddEditWeatherComponent);
+        ref.componentInstance.forcast = data;
+  
+        ref.result.then((result) => {
+          this.closeResult = `Closed with: ${result}`;
+          console.log(this.closeResult);
+          console.log(data);
+          
+          this.service.addWeather(data).subscribe(data=>{
+            alert(data.toString());
+            this.getWeatherList();
+          });
+        }, (result) => {
+          this.closeResult = `Dismissed ${this.getDismissReason(result)}`;
+          console.log(this.closeResult);
+        });
+  
+        }
+        else
+        {
+          alert('Close current modal window');
+        }
+
   }
   
   deleteWeatherClick(data)
   {
   //   $.confirm({
   //     title: 'Confirm!',
-  //     content: 'Are you sure you want to refund invoice ?',
+  //     content: 'Are you sure ?',
   //     confirm: function(){
   //       this.service.deleteWeather(data).subscribe(data=>{
   //         alert(data.toString());

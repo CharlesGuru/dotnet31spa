@@ -18,7 +18,7 @@
         </div>
         <div class="form-group row">
             <label for="temperatureC" class="col-sm m2 col-form-label text-right">Temperature (c)</label>
-            <input type="text"  [(ngModel)]="forcast.temperatureC" formControlName="temperatureC" placeholder="Enter the temperature in Celcius" >
+            <input type="number" max="140" min="-100" [(ngModel)]="forcast.temperatureC" formControlName="temperatureC" placeholder="Enter the temperature in Celcius" >
         </div>
         <div class="form-group row">
             <label for="summary" class="col-sm m2 col-form-label text-right">Summary</label>

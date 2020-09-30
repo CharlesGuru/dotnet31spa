@@ -1,6 +1,6 @@
 export class WeatherForecast {
     weatherid:number;
-    date: string;
+    date: Date;
     temperatureC: number;
     temperatureF: number;
     summary: string;
