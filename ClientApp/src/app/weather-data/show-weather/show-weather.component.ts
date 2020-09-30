@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SharedWeatherService} from 'src/app/shared-weather.service';
 import { NgbModal , ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { AddEditWeatherComponent } from 'src/app/weather-data/add-edit-weather/add-edit-weather.component';
+import { WeatherForecast } from 'src/app/models/weather-forecast';
 
 
 @Component({
@@ -65,10 +66,10 @@ export class ShowWeatherComponent implements OnInit {
 
       ref.result.then((result) => {
         this.closeResult = `Closed with: ${result}`;
-        console.log(this.closeResult);
-
-      }, (reason) => {
-        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+        console.log('test' + this.closeResult);
+        console.log(this.forcast);
+      }, (result) => {
+        this.closeResult = `Dismissed ${this.getDismissReason(result)}`;
         console.log(this.closeResult);
       });
 
@@ -134,11 +135,4 @@ export class ShowWeatherComponent implements OnInit {
 
 }
 
-interface WeatherForecast 
-{
-  weatherid:number;
-  date: string;
-  temperatureC: number;
-  temperatureF: number;
-  summary: string;
-}
+

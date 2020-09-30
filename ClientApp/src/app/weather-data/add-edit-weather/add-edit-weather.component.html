@@ -6,24 +6,29 @@
 </div>
 
 <div class="modal-body">
-<form>
-    <div class="form-group">
-    <label for="dateWeather">Date</label>
-    <div class="input-group">
-        <input id="dateWeather" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
-        <div class="input-group-append">
-        <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
+    <form [formGroup]="addEditForm" (onSubmit)="onSubmit" >
+        <div class="form-group row">
+            <div class="input-group">
+                <label for="date" class="col-sm m2 col-form-label text-right">Date</label>
+                <input type="date"  [(ngModel)]="forcast.date" formControlName="date" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
+                <div class="input-group-append">
+                <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
+                </div>
+            </div>
         </div>
-    </div>
-    <label for="temperatureWeather">Temperature (c)</label>
-    <input id="temperatureWeather" type="text" class="form-control" placeholder="Enter the temperature in Celcius" >
-    <label for="summaryWeather">Summary</label>
-    <input id="summaryWeather" type="text" class="form-control"  placeholder="Enter the weather Description" >
-    </div>
-</form>
+        <div class="form-group row">
+            <label for="temperatureC" class="col-sm m2 col-form-label text-right">Temperature (c)</label>
+            <input type="text"  [(ngModel)]="forcast.temperatureC" formControlName="temperatureC" placeholder="Enter the temperature in Celcius" >
+        </div>
+        <div class="form-group row">
+            <label for="summary" class="col-sm m2 col-form-label text-right">Summary</label>
+            <input  type="text"  [(ngModel)]="forcast.summary" formControlName="summary" placeholder="Enter the weather Description" >
+        </div>   
+    </form>
 </div>
 
 <div class="modal-footer">
+    <!-- <button  class="btn btn-primary">submit</button> -->
 <button (click)="addWeather(); modal.close('Save click')"  *ngIf ="forcast.weatherid==0" class="btn btn-primary">Add</button>
 <button (click)="updateWeather();modal.close('Save click')"  *ngIf ="forcast.weatherid!=0" class="btn btn-primary">Update</button>
 <!-- <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button> -->
